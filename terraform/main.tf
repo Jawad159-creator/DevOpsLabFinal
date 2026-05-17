@@ -1,5 +1,7 @@
 provider "aws" {
-  region = "us-east-1"
+  region     = "us-east-1"
+  access_key = "AKIAYKQPVZR2GN3QLFP7"
+  secret_key = "Ck5uJX7RFKqXDO7WkvV0acUYzlsQ0WN0JdblbXFl6"
 }
 
 resource "aws_instance" "devops_server" {
