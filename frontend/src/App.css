@@ -1,0 +1,113 @@
+/* Base container: Wide enough and centered */
+.app-container {
+  max-width: 1000px;
+  /* This makes the box larger! */
+  margin: 40px auto;
+  padding: 60px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(9, 134, 211, 0.1);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.app-container h2 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+/* Form styling */
+.input-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.name-input {
+  flex: 1;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: 1px solid #ced4da;
+  font-size: 16px;
+}
+
+.name-input:focus {
+  outline: none;
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 2px rgba(13, 110, 253, 0.25);
+}
+
+.add-btn {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.add-btn:hover {
+  background-color: #0b5ed7;
+}
+
+/* List styling */
+.list-header {
+  color: #495057;
+  font-size: 18px;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.list-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px;
+  /* Limits height so a long list doesn't take over the screen */
+  overflow-y: auto;
+  /* Adds the scrollbar when the list gets big */
+  padding-right: 5px;
+  /* Keeps the scrollbar from overlapping text */
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  background-color: white;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  border: 1px solid #e9ecef;
+}
+
+.item-name {
+  font-weight: 500;
+  color: #212529;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+
+.empty-message {
+  color: #6c757d;
+  font-style: italic;
+  text-align: center;
+  margin-top: 20px;
+}
