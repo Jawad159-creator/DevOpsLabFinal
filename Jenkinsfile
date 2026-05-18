@@ -32,8 +32,8 @@ pipeline {
 
         stage('Deploy to Kubernetes Cluster') {
     steps {
-        // Appending the explicit server target and validation bypass flags
-        sh "kubectl apply -f k8s/app-deployment.yml --server=https://192.168.49.2:8443 --validate=false"
+        // Pointing explicitly to the configuration file mapped inside Jenkins
+        sh "kubectl apply -f k8s/app-deployment.yml --kubeconfig=/var/jenkins_home/.kube/config"
     }
 }
     }
