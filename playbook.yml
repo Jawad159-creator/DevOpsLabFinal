@@ -74,3 +74,39 @@
         name: ubuntu
         groups: docker
         append: yes
+    - name: Create Prometheus configuration directory
+      file:
+        path: /etc/prometheus
+        state: directory
+        mode: '0755'
+
+    - name: Deploy default Prometheus config file
+      copy:
+        dest: /etc/prometheus/prometheus.yml
+        content: |
+          global:
+            scrape_interval: 15s
+          scrape_configs:
+            - job_name: 'prometheus'
+              static_configs:
+                - targets: ['localhost:9090']
+            - job_name: 'kubernetes-pods'
+              static_configs:
+                - targets: ['192.168.49.2:8443'] # Targeting your Minikube cluster
+
+    - name: Deploy Prometheus Container
+      command: >
+        docker run -d --name prometheus 
+        -p 9090:9090 
+        -v /etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml 
+        --restart unless-stopped 
+        prom/prometheus:latest
+      ignore_errors: yes
+
+    - name: Deploy Grafana Container
+      command: >
+        docker run -d --name grafana 
+        -p 3000:3000 
+        --restart unless-stopped 
+        grafana/grafana:latest
+      ignore_errors: yes
