@@ -31,10 +31,10 @@ pipeline {
         }
 
         stage('Deploy to Kubernetes Cluster') {
-            steps {
-                // Tells Kubernetes to pull down the newly pushed images and run the pods
-                sh "kubectl apply -f k8s/app-deployment.yml"
-            }
-        }
+    steps {
+        // Appending the explicit server target and validation bypass flags
+        sh "kubectl apply -f k8s/app-deployment.yml --server=https://192.168.49.2:8443 --validate=false"
+    }
+}
     }
 }
