@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = 'dockerhub-login-id' // ID set up in Jenkins credentials
-        DOCKER_USER           = 'your-dockerhub-username'
+        DOCKER_USER           = 'jawadawan'
     }
 
     stages {

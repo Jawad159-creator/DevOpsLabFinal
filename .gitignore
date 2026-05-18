@@ -1,2 +1,12 @@
 node_modules/
 .env
+# Terraform files
+.terraform/
+*.executable
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+# Secrets and Keys
+*.pem
+*.tfvars
+*.tfvars.json
